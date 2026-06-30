@@ -75,6 +75,11 @@ You are working on **JumpsGPT** — a Next.js 16 + Convex + Clerk + Stripe SaaS 
 
 ## Design System
 
+**Before writing any UI, read the full frontend guide:**
+`https://github.com/Jumpsy/omni/blob/main/omni/references/jumpsgpt-frontend-decisions.md`
+
+That document explains every pattern in detail — why it was built that way, what slop looks like, and a pre-ship checklist. The summary below is a quick-reference only.
+
 - **Brand color:** `--pink` (#d61a6f light / #ff3d92 dark) — accessible 4.5:1
 - Full pink palette: `--pink-50` through `--pink-900` (use `bg-pink-100`, `text-pink-600`, etc.)
 - Full gray palette: `--gray-50` through `--gray-900`
@@ -84,6 +89,16 @@ You are working on **JumpsGPT** — a Next.js 16 + Convex + Clerk + Stripe SaaS 
 - **Fonts:** Space Grotesk (display) + Geist (body) + handwritten font switchable via `data-font="handwritten"` on `<html>`
 - Mobile-first: test at 375px, 768px, 1280px
 - JumpStudy font toggle: `JumpStudyFontToggle` + `JumpStudyFontApplier` from `components/ui/jumpstudy-font-applier.tsx`
+
+### Anti-Slop Quick Reference
+If you are about to write any of these, stop:
+- `className="... bg-gray-100 rounded-full p-2"` around an icon
+- `bg-gradient-to-r from-pink-500 to-purple-500`
+- Copy with "powerful", "seamless", "cutting-edge", "intuitive"
+- A modal where inline feedback would work
+- `Math.random()` in render — use `useRef` for stable values
+- `text-4xl font-bold` — use `font-display text-h1 font-semibold`
+- Hardcoded hex — use CSS variables (`--pink`, `--fg-muted`, `--border`)
 
 ---
 
